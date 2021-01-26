@@ -226,6 +226,15 @@ WX_EXPORT_METHOD(@selector(save:))
     }
 }
 
+- (void)didFinishDrawingLayer:(BOOL)success {
+    if ([self isViewLoaded]) {
+        UIImage *image = ((UIImageView *)self.view).image;
+        if (image && !_layer.contents) {
+            _layer.contents = (id)(image.CGImage);
+        }
+    }
+}
+
 - (UIView *)loadView
 {
     return [[WXImageView alloc] init];
