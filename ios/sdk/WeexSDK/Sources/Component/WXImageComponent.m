@@ -404,10 +404,10 @@ WX_EXPORT_METHOD(@selector(save:))
 
 - (void)updateImage
 {
-    if (CGSizeEqualToSize(_view.frame.size, CGSizeZero)) {
-        _shouldUpdateImage = YES;
-        return;
-    }
+    // if (CGSizeEqualToSize(_view.frame.size, CGSizeZero)) {
+    //     _shouldUpdateImage = YES;
+    //     return;
+    // }
     __weak typeof(self) weakSelf = self;
     if (_downloadImageWithURL && [[self imageLoader] respondsToSelector:@selector(setImageViewWithURL:url:placeholderImage:options:progress:completed:)]) {
         NSString *newURL = nil;
